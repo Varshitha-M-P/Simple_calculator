@@ -13,11 +13,9 @@ class Calculator:
         self.create_widgets()
 
     def create_widgets(self):
-        # Create the entry widget
         entry = tk.Entry(self.root, textvariable=self.result_var, font=("Arial", 24), bd=10, insertwidth=2, width=14, borderwidth=4)
         entry.grid(row=0, column=0, columnspan=4)
 
-        # Button labels
         buttons = [
             '7', '8', '9', '/',
             '4', '5', '6', '*',
@@ -25,11 +23,9 @@ class Calculator:
             '0', '.', '=', '+'
         ]
 
-        # Initialize row and column values
         row_val = 1
         col_val = 0
 
-        # Loop through button labels and create buttons
         for button in buttons:
             tk.Button(self.root, text=button, padx=20, pady=20, font=("Arial", 18), command=lambda button=button: self.on_button_click(button)).grid(row=row_val, column=col_val)
             col_val += 1
@@ -37,7 +33,6 @@ class Calculator:
                 col_val = 0
                 row_val += 1
 
-        # Create and place the Clear button
         tk.Button(self.root, text="C", padx=20, pady=20, font=("Arial", 18), command=self.clear).grid(row=row_val, column=col_val)
 
     def on_button_click(self, char):
